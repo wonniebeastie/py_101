@@ -5,9 +5,7 @@ def titlize(sentence):
     for word in words:
         if len(word) > 2:
             word = word.capitalize()
-            new_words.append(word)
-        else:
-            new_words.append(word)
+        new_words.append(word)
 
     return ' '.join(new_words)
 
