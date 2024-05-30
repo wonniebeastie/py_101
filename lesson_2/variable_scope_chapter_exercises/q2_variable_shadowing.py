@@ -15,3 +15,13 @@ print(num)  # 5
 # creates its own scope. 
 # So the `num` at the end only has access to the global variable `num`.
 # This is an example of variable shadowing. 
+
+# SOLUTION:
+# This prints 5. The variable num initialized to 5 on line 1 and the 
+# variable num initialized on line 4 within the function my_func are 
+# two different variables. We can't reassign variable num initialized 
+# on line 1 within the function.
+
+# CORRECTION:
+# Remember to point out that they are two different variables 
+# independent of each other. 
