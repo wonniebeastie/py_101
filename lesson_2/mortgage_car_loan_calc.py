@@ -391,30 +391,27 @@ def transform_duration(yrs):
     return yrs
 
 
-print(prompt('Welcome to the Mortgage Calculator!'))
+prompt('Welcome to the Mortgage Calculator!')
 
-print(prompt('What is the loan amount?')) 
+prompt('What is the loan amount?')
 loan_amount = float(input())
 
 while loan_amount <= 0:
-    print(prompt('Please enter a valid loan amount.'))
+    prompt('Please enter a valid loan amount.')
     loan_amount = float(input())
 
-
-print(prompt('''What is the Annual Percentage Rate (APR)?
-    (For example, enter 12 for 12% or 1.5 for 1.5%.)'''))
+prompt('''What is the Annual Percentage Rate (APR)?
+    (For example, enter 12 for 12% or 1.5 for 1.5%.)''')
 annual_int_rate = float(input())
 
 while annual_int_rate < 0:
-    print(prompt('Please enter a valid Annual Percentage Rate (APR).'))
+    prompt('Please enter a valid Annual Percentage Rate (APR).')
     annual_int_rate = float(input())
 
-# PRINT '{annual_int_rate}%'
+monthly_int_rate = calculate_rate(annual_int_rate)
 
-# monthly_int_rate = READ calculate_rate(annual_int_rate)
-
-# PRINT prompt('What is the loan duration in years?')
-# loan_dur_in_yrs = GET
+prompt('What is the loan duration in years?')
+loan_dur_in_yrs = input()
 
 # WHILE loan_dur_in_yrs =! positive number,
 #     PRINT prompt('Please enter a valid loan duration in years.')
