@@ -401,13 +401,13 @@ while loan_amount <= 0:
     loan_amount = float(input())
 
 
-# PRINT prompt('What is the Annual Percentage Rate (APR)?
-#     new line - 'Enter 12 for 12% or 1.5 for 1.5%'')
-# annual_int_rate = GET
+print(prompt('''What is the Annual Percentage Rate (APR)?
+    (For example, enter 12 for 12% or 1.5 for 1.5%.)'''))
+annual_int_rate = float(input())
 
-# WHILE annual_int_rate == 0 or positive number, 
-#     PRINT prompt('Please enter a valid Annual Percentage Rate (APR).')
-#     annual_int_rate = GET
+while annual_int_rate < 0:
+    print(prompt('Please enter a valid Annual Percentage Rate (APR).'))
+    annual_int_rate = float(input())
 
 # PRINT '{annual_int_rate}%'
 
