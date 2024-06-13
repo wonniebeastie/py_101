@@ -390,6 +390,18 @@ def transform_duration(yrs):
     yrs = yrs * 12.0
     return yrs
 
+def calc_equation():
+    if monthly_int_rate != 0:
+        monthly_payment = loan_amount * (
+            monthly_int_rate / 
+               (1 - (1 + monthly_int_rate) ** (-loan_dur_in_mos))
+        )
+        return round(monthly_payment, 2)
+    else:
+        monthly_payment = loan_amount / loan_dur_in_mos
+        return round(monthly_payment, 2)
+
+
 
 prompt('Welcome to the Mortgage Calculator!')
 
@@ -411,22 +423,14 @@ while annual_int_rate < 0:
 monthly_int_rate = calculate_rate(annual_int_rate)
 
 prompt('What is the loan duration in years?')
-loan_dur_in_yrs = input()
+loan_dur_in_yrs = float(input())
 
-# WHILE loan_dur_in_yrs =! positive number,
-#     PRINT prompt('Please enter a valid loan duration in years.')
-#     loan_dur_in_yrs = GET
+while loan_dur_in_yrs <= 0:
+    prompt('Please enter a valid loan duration in years.')
+    loan_dur_in_yrs = float(input())
 
-# PRINT '{loan_dur_in_yrs} years'
+loan_dur_in_mos = transform_duration(loan_dur_in_yrs)
 
-# loan_dur_in_mos = READ transform_duration(loan_dur_in_yrs)
+monthly_payment = calc_equation()
 
-# IF monthly_int_rate =! 0, 
-#     monthly_payment = loan_amount * (
-#         monthly_int_rate / 
-#             (1 - (1 + monthly_int_rate) ** (loan_dur_in_mos))
-#     )
-#     PRINT monthly_payment 
-# ELSE 
-#     monthly_payment = loan_amount / loan_duration_in_months
-#     PRINT monthly_payment
+prompt(f'Your monthly payment is ${monthly_payment}.')
