@@ -396,13 +396,10 @@ print(prompt('Welcome to the Mortgage Calculator!'))
 print(prompt('What is the loan amount?')) 
 loan_amount = float(input())
 
-while loan_amount < 0:
+while loan_amount <= 0:
     print(prompt('Please enter a valid loan amount.'))
     loan_amount = float(input())
 
-loan_amount = round(loan_amount, 3)
-
-print(f'${loan_amount}')
 
 # PRINT prompt('What is the Annual Percentage Rate (APR)?
 #     new line - 'Enter 12 for 12% or 1.5 for 1.5%'')
