@@ -234,6 +234,14 @@
 #     Multiply `yrs` with 12.0,
 #     Return `yrs`
 
+# Create function `calc_equation()`
+#     If `monthly_int_rate` is not 0, use this formula:
+#         monthly_payment = loan_amount * (monthly_int_rate / (1 - (1 + monthly_int_rate) ** (loan_duration_in_months)))
+#     If it IS zero, use this formula:
+#         monthly_payment = loan_amount / loan_duration_in_months
+#     Reassign result rounded to two decimal places to `monthly_payment`
+#     Return `monthly_payment`
+
 
 # Call `prompt()` on 'Welcome to the Mortgage Calculator!'
 
@@ -265,7 +273,7 @@
 # assign result to variable called `monthly_int_rate`
 
 # Ask for input with `prompt()`: What is the loan duration in years? 
-# Assign input to variable called `loan_duration_in_yrs`
+# Assign input to variable called `loan_duration_in_yrs` 
 
 # Start loop
 #     If input isn't a positive number, 
@@ -277,14 +285,15 @@
 # Call `transform_duration()` on `loan_duration_in_yrs`, 
 # assign result to variable called `loan_duration_in_months`.
 
-# If `monthly_int_rate` is not 0, use this formula:
-# monthly_payment = loan_amount * (monthly_int_rate / (1 - (1 + monthly_int_rate) ** (loan_duration_in_months)))
-# If it IS zero, use this formula:
-# monthly_payment = loan_amount / loan_duration_in_months
+# Call `calc_equation()` on `loan_duration_in_months`.
+# Assign result to `monthly_payment`
 
 # Round `monthly_payment` to two decimal places.
 
 # Output 'Your monthly payment: ${monthly_payment}' 
+
+
+
 
 
 # FORMALIZE PSEUDOCODE 
@@ -309,6 +318,17 @@
 # SET transform_duration(yrs)
 #     yrs = yrs * 12.0
 #     RETURN yrs
+
+# SET calc_equation()
+#     IF monthly_int_rate =! 0, 
+#       monthly_payment = loan_amount * (
+#           monthly_int_rate / 
+#               (1 - (1 + monthly_int_rate) ** (loan_dur_in_mos))
+#       )
+#       RETURN monthly_payment rounded to two decimal places
+#   ELSE 
+#       monthly_payment = loan_amount / loan_duration_in_months
+#       RETURN monthly_payment rounded to two decimal places
 
 
 # PRINT prompt('Welcome to the Mortgage Calculator!')
@@ -345,15 +365,9 @@
 
 # loan_dur_in_mos = READ transform_duration(loan_dur_in_yrs)
 
-# IF monthly_int_rate =! 0, 
-#     monthly_payment = loan_amount * (
-#         monthly_int_rate / 
-#             (1 - (1 + monthly_int_rate) ** (loan_dur_in_mos))
-#     )
-#     PRINT monthly_payment 
-# ELSE 
-#     monthly_payment = loan_amount / loan_duration_in_months
-#     PRINT monthly_payment
+# monthly_payment = READ calc_equation(loan_dur_in_mos)
+
+# PRINT prompt('Your monthly payment: ${monthly_payment}')
 
 
 
@@ -379,14 +393,16 @@ def transform_duration(yrs):
 
 print(prompt('Welcome to the Mortgage Calculator!'))
 
-# PRINT prompt('What is the loan amount?')
-# loan_amount = GET 
+print(prompt('What is the loan amount?')) 
+loan_amount = float(input())
 
-# WHILE loan_amount =! positive number, 
-#     PRINT prompt('Please enter a valid loan amount.')
-#     loan_amount = GET 
+while loan_amount < 0:
+    print(prompt('Please enter a valid loan amount.'))
+    loan_amount = float(input())
 
-# PRINT '${loan_amount}'
+loan_amount = round(loan_amount, 3)
+
+print(f'${loan_amount}')
 
 # PRINT prompt('What is the Annual Percentage Rate (APR)?
 #     new line - 'Enter 12 for 12% or 1.5 for 1.5%'')
