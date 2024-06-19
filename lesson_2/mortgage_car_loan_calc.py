@@ -374,17 +374,15 @@
 def prompt(message):
     print(f'==> {message}')
 
-def input_as_float(input):
-    input = float(input)
-    return input 
+def input_as_float(user_input):
+    user_input = float(user_input)
+    return user_input 
 
 def calculate_rate(apr):
-    if apr == 0:
-        return apr
-    else:
+    if apr !=0:
         apr = apr / 12  # Convert to monthly rate.
         apr = apr / 100  # Convert percentage to decimal.
-        return apr
+    return apr
 
 def transform_duration(yrs):
     yrs = yrs * 12.0
