@@ -379,7 +379,7 @@ def input_as_float(user_input):
     return user_input 
 
 def calculate_rate(apr):
-    if apr !=0:
+    if apr != 0:
         apr = apr / 12  # Convert to monthly rate.
         apr = apr / 100  # Convert percentage to decimal.
     return apr
@@ -390,15 +390,14 @@ def transform_duration(yrs):
 
 def calc_equation():
     if monthly_int_rate != 0:
-        monthly_payment = loan_amount * (
+        amount = loan_amount * (
             monthly_int_rate / 
                (1 - (1 + monthly_int_rate) ** (-loan_dur_in_mos))
         )
-        return round(monthly_payment, 2)
-    else:
-        monthly_payment = loan_amount / loan_dur_in_mos
-        return round(monthly_payment, 2)
-
+        return round(amount, 2)
+    
+    amount = loan_amount / loan_dur_in_mos
+    return round(amount, 2)
 
 
 prompt('Welcome to the Mortgage Calculator!')
