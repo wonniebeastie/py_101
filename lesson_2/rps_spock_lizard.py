@@ -41,9 +41,9 @@ VALID_CHOICES = ['rock', 'paper', 'scissors', 'spock', 'lizard']
 def prompt(message):
     print(f"==> {message}")
 
-def display_winner(player, computer):
+def display_winner(choice, computer_choice):
     if ((choice == "rock" and computer_choice == "scissors") or 
-        (choice == "paper" and computer_choice == "rocks") or
+        (choice == "paper" and computer_choice == "rock") or
         (choice == "scissors" and computer_choice == "paper")or
         (choice == "lizard" and computer_choice == "spock") or
         (choice == "spock" and computer_choice == "scissors") or
@@ -77,18 +77,13 @@ def shorthand_translate(shorthand):
             return "spock"
         case "l":
             return "lizard"
-        
-def increment_score(winner):
-    return winner += 1
-
-
 
 while True: 
-    prompt(f'Choose one: "r" for Rock, "p" for Paper, "s" for Scissors, "sp" for Spock, "l" for Lizard.')
+    prompt('Choose one: "r" for Rock, "p" for Paper, "s" for Scissors, "sp" for Spock, "l" for Lizard.')
     choice = shorthand_translate(input())
     
     while choice not in VALID_CHOICES:
-        prompt("That's not a valid choice")
+        prompt("That's not a valid choice.")
         choice = shorthand_translate(input())
 
     computer_choice = random.choice(VALID_CHOICES)
@@ -96,7 +91,7 @@ while True:
     prompt(f"You chose {choice}, computer chose {computer_choice}.")
 
     display_winner(choice, computer_choice)
-    
+
     prompt("Do you want to play again (y/n)?")
     answer = input().lower()
 
