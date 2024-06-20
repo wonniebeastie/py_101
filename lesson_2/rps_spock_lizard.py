@@ -11,7 +11,7 @@
 #
 # Shortened Input 
 # - let users type "r" for "rock" and so on (Two inputs start with "s" 
-# - how to resolve?).
+# - how to resolve?). X
 #
 # Best of Five 
 # - Keep track of player's wins and computer's wins. 
@@ -77,6 +77,10 @@ def shorthand_translate(shorthand):
             return "spock"
         case "l":
             return "lizard"
+        
+def increment_score(winner):
+    return winner += 1
+
 
 
 while True: 
