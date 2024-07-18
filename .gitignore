@@ -4,3 +4,4 @@ variable_scope_chapter_exercises/
 
 # Ignore random file used for testing.
 test2.py
+test.py
