@@ -8,6 +8,8 @@
 # ---The Flintstones Rock!
 #    ... (10x)
 
+# MY SOLUTION
+
 # PSEUDOCODE
 # Assign "The Flintstones Rock!" to variable `line`
 
@@ -47,3 +49,8 @@ display_message(line)
 # --------The Flintstones Rock!
 # ---------The Flintstones Rock!
 # ----------The Flintstones Rock!
+
+
+# SOLUTION
+# for padding in range(1, 11):
+#     print(f'{"-" * padding}The Flintstones Rock!')
