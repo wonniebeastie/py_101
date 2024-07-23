@@ -1,6 +1,11 @@
 munsters_description = "The Munsters are creepy and spooky."
 
-# print the string with the case of all letters swapped:
+# Print the string with the case of all letters swapped:
 # "tHE mUNSTERS ARE CREEPY AND SPOOKY."
 
-print(munsters_description.swapcase())
+# MY SOLUTION
+print(munsters_description.swapcase())  
+# tHE mUNSTERS ARE CREEPY AND SPOOKY.
+
+# SOLUTION
+# Correct.
